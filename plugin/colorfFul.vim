@@ -12,3 +12,5 @@ nmap f <plug>(colorfFul-f)
 nmap F <plug>(colorfFul-F)
 nmap t <plug>(colorfFul-t)
 nmap T <plug>(colorfFul-T)
+
+highlight default link ColorfFulMarker Search

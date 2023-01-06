@@ -2,8 +2,6 @@ vim9script
 
 const ESC_CODE = char2nr("\<ESC>")
 
-highlight link ColorfFulMarker Search
-
 def MarkCharInLine(c: string, l: number): void
     const regex = '\%.l' .. c
     call matchadd('ColorfFulMarker', regex, 999)
