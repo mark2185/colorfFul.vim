@@ -16,7 +16,7 @@ Remove the highlighting by invoking `{f,F,t,T}<Esc>`.
 
 ## Configuration
 If you don't want to use the `Search` highlight group for the char,
-link ColorfFulMarker to some other group.
+link `ColorfFulMarker` to some other group.
 ```viml
 highlight link ColorfFulMarker Search
 ```
