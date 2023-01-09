@@ -3,7 +3,7 @@ vim9script
 const ESC_CODE = char2nr("\<ESC>")
 
 def MarkCharInLine(c: string, l: number): void
-    const regex = '\%.l' .. c
+    const regex = '\V\%.l' .. c
     call matchadd('ColorfFulMarker', regex, 999)
 enddef
 
