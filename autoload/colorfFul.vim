@@ -1,7 +1,5 @@
 vim9script
 
-const ESC_CODE = char2nr("\<ESC>")
-
 def MarkCharInLine(c: string, l: number): void
     const regex = '\V\%.l' .. c
     call matchadd('ColorfFulMarker', regex, 999)
@@ -14,13 +12,18 @@ export def ClearMatches(): void
 enddef
 
 export def FindWith(forward: string): string
-    const inputChar = getchar()
+    # Prefer getcharstr() over getchar()->nr2char().
+    # The former is more readable and more reliable.
+    # Also the return value is not necessarily a number, it can also be a
+    # string which is the case then vim automatically
+    # presses the pseudo-key <CursorHold> which makes it go haywire
+    # in vim9script
+    const charToFind = getcharstr()
     ClearMatches()
-    if inputChar == ESC_CODE
+    if charToFind == "\<ESC>" || charToFind == "\<CursorHold>"
         return ''
     endif
 
-    const charToFind = nr2char(inputChar)
     var line = getline('.')
     var [_, lineIndex, cursorIndex, _] = getpos('.')
     MarkCharInLine(charToFind, lineIndex)
