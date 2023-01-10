@@ -33,9 +33,14 @@ Remove the highlighting by invoking '{f,F,t,T}<Esc>'.
 Configuration ~
 
 If you don't want to use the 'Search' highlight group for the char, link
-ColorfFulMarker to some other group.
+'ColorfFulMarker' to some other group.
 >
   highlight link ColorfFulMarker Search
+<
+The function 'colorfFul#ClearMatches' is also available if you wish to map it
+to something, e.g.:
+>
+  nnoremap <leader>n :nohlsearch<BAR>call colorfFul#ClearMatches()<CR>
 <
 
 

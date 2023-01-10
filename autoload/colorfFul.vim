@@ -7,7 +7,7 @@ def MarkCharInLine(c: string, l: number): void
     call matchadd('ColorfFulMarker', regex, 999)
 enddef
 
-def ClearMatches(): void
+export def ClearMatches(): void
     for hi in filter(getmatches(), 'v:val.group ==# "ColorfFulMarker"')
         call matchdelete(hi.id)
     endfor
